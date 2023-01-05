@@ -1,9 +1,11 @@
 //work on this app until end of the week
-//a. upload on github
+//a. upload on github ✅
 //b. think through data flow and file structure
 //c. refactor code
 //d. add small todo section in the upper left corner which flows over the app (z-index 1) with icon style similar to update
-//e. change app icon
+//e. change app icon ✅
+//f. add option to turn it on from icon menu
+// improve read.me
 
 async function updateImageData() {
     try {
