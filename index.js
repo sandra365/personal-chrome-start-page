@@ -119,6 +119,14 @@ async function renderQoute() {
     }
 }
 
+document.getElementById("note-input").addEventListener("keypress", (event) => {addNote(event)});
+
+function addNote(event) {
+    if (event.key === "Enter") {
+        //action here
+    }
+}
+
 async function run() {
     const dateToday = getCurrentDate();
     const bgUpdateDate = getLocalStorageItem('imageData') !== null 
