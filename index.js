@@ -130,13 +130,16 @@ function addNote(e) {
         const text = e.target.value;
         const note = `
             <div class="note">
-                ${text}
+                <p>${text}</p>
+                <button type="button" class="delete-btn">
+                    <img class="delete-icon" src="delete-icon.png" alt="Delete note"
+                </button>
             </div>
         `;
         document.getElementById("notes").insertAdjacentHTML("beforeend", note);
         noteInput.value = '';
 }
-//add note styling later
+//probably will need to save notes to local storage
 
 async function run() {
     const dateToday = getCurrentDate();
