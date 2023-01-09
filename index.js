@@ -6,6 +6,7 @@
 //e. change app icon ✅
 //f. add option to turn it on from icon menu
 // improve read.me
+const noteInput = document.getElementById("note-input");
 
 async function updateImageData() {
     try {
@@ -119,13 +120,23 @@ async function renderQoute() {
     }
 }
 
-document.getElementById("note-input").addEventListener("keypress", (event) => {addNote(event)});
-
-function addNote(event) {
+noteInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
-        //action here
+        addNote(event);
     }
+});
+
+function addNote(e) {
+        const text = e.target.value;
+        const note = `
+            <div class="note">
+                ${text}
+            </div>
+        `;
+        document.getElementById("notes").insertAdjacentHTML("beforeend", note);
+        noteInput.value = '';
 }
+//add note styling later
 
 async function run() {
     const dateToday = getCurrentDate();
