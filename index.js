@@ -1,4 +1,4 @@
-//work on this app until end of the week
+//work on this app until end of the week (15/01) and then start learning react with that cool guy
 //a. upload on github ✅
 //b. think through data flow and file structure
 //c. refactor code (split it into modules)
@@ -7,6 +7,9 @@
 //f. add option to turn it on from icon menu
 // improve read.me
 const noteInput = document.getElementById("note-input");
+const notes = getLocalStorageItem('notes') !== null 
+    ? getLocalStorageItem('notes')
+    : [];
 
 async function updateImageData() {
     try {
@@ -122,25 +125,39 @@ async function renderQoute() {
 
 noteInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
-        addNote(event);
+        addNote(event.target.value);
     }
 });
 
-function addNote(e) {
-        const text = e.target.value;
-        const note = `
-            <div class="note">
-                <p>${text}</p>
+function addNote(text) {
+    const noteObj = {
+        id: Date.now().toString(),
+        note: text,
+    };
+    notes.push(noteObj);
+    setLocalStorageItem('notes', notes);//does it 'reset' notes object in local storage?
+    renderNotes();
+    noteInput.value = '';
+}
+
+function renderNotes() {
+    if (notes) {
+        let notesDiv = '';
+        notes.forEach(note => {
+            const noteHtml = `
+            <div id="${note.id}" class="note">
+                <p>${note.note}</p>
                 <button type="button" class="delete-btn">
                     <img class="delete-icon" src="delete-icon.png" alt="Delete note"
                 </button>
             </div>
-        `;
-        document.getElementById("notes").insertAdjacentHTML("beforeend", note);
-        noteInput.value = '';
+            `;
+            notesDiv += noteHtml;
+        });
+        document.getElementById("notes-bottom").innerHTML = notesDiv;
+    }
 }
-//probably will need to save notes to local storage
-
+//improve ui for deleting/editing note, make it wider
 async function run() {
     const dateToday = getCurrentDate();
     const bgUpdateDate = getLocalStorageItem('imageData') !== null 
@@ -157,6 +174,8 @@ async function run() {
 
     await renderQoute();
     setInterval(renderQoute, 60*60*1000);//will it work like it supposed to?(because callback is async)
+
+    renderNotes();
 }
 
 run();
