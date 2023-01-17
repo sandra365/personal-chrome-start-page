@@ -1,4 +1,4 @@
-//work on this app until end of the week (15/01) and then start learning react with that cool guy
+//work on this app until the end and then start learning react with that cool guy
 //a. upload on github ✅
 //b. think through data flow and file structure
 //c. refactor code (split it into modules)
@@ -6,8 +6,9 @@
 //e. change app icon ✅
 //f. add option to turn it on from icon menu
 // improve read.me
+//add lock/unlock feature for quotes
 const noteInput = document.getElementById("note-input");
-const notes = getLocalStorageItem('notes') !== null 
+let notes = getLocalStorageItem('notes') !== null 
     ? getLocalStorageItem('notes')
     : [];
 
@@ -132,7 +133,7 @@ noteInput.addEventListener("keypress", (event) => {
 function addNote(text) {
     const noteObj = {
         id: Date.now().toString(),
-        note: text,
+        text: text,
     };
     notes.push(noteObj);
     setLocalStorageItem('notes', notes);//does it 'reset' notes object in local storage?
@@ -144,20 +145,35 @@ function renderNotes() {
     if (notes) {
         let notesDiv = '';
         notes.forEach(note => {
+            const { id, text } = note;
             const noteHtml = `
-            <div id="${note.id}" class="note">
-                <p>${note.note}</p>
-                <button type="button" class="delete-btn">
-                    <img class="delete-icon" src="delete-icon.png" alt="Delete note"
-                </button>
+            <div id="${id}" class="note">
+                <p>${text}</p>
+                <img class="delete-btn" src="delete-icon.png" alt="Delete note">
             </div>
             `;
             notesDiv += noteHtml;
         });
         document.getElementById("notes-bottom").innerHTML = notesDiv;
+        const deleteBtnCollection = document.getElementsByClassName("delete-btn");//doesn't apply to notes created after innitial loading
+        Array.from(deleteBtnCollection).forEach(btn => {
+            btn.addEventListener("click", (e) => {deleteNote(e)});
+        });
     }
 }
-//improve ui for deleting/editing note, make it wider
+
+function deleteNote(e) {
+    const noteId = e.target.parentElement.id;
+    notes = notes.filter(el => el.id !== noteId);
+    setLocalStorageItem('notes', notes);
+    renderNotes();
+}
+
+//add delete note feature
+//add edit note feature
+//improve ui for deleting/editing note, make notes wider
+// improve notes positioning (z-index)
+
 async function run() {
     const dateToday = getCurrentDate();
     const bgUpdateDate = getLocalStorageItem('imageData') !== null 
@@ -173,9 +189,12 @@ async function run() {
     navigator.geolocation.getCurrentPosition(async(position) => {await renderWeather(position)});
 
     await renderQoute();
-    setInterval(renderQoute, 60*60*1000);//will it work like it supposed to?(because callback is async)
+    setInterval(renderQoute, 60*60*1000);//will it work like it supposed to?(because callback is async)/works not as expected
 
     renderNotes();
+    
 }
 
 run();
+
+//&#x2022; - bullet symbol

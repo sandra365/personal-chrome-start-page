@@ -121,20 +121,16 @@ h1.time {
 }
 
 .delete-btn {
-    background: none;
-    border: none;
+    width: 1em;
+    height: 1em;
+    margin-left: 5px;
     cursor: pointer;
-    /* outline: none; */
 }
 /* 
 .delete-btn:hover,
 .delete-btn:focus {
     border: 1px solid #fff;
 } */
-
-.delete-icon{
-    width: 1em;
-}
 
 .author {
     font-size: 1.35em;
