@@ -2,7 +2,7 @@
 //a. upload on github ✅
 //b. think through data flow and file structure
 //c. refactor code (split it into modules)
-//d. add small todo section in the upper left corner which flows over the app (z-index 1) with icon style similar to update
+//d. add small todo section in the upper left corner which flows over the app (z-index 1) with icon style similar to update ✅
 //e. change app icon ✅
 //f. add option to turn it on from icon menu
 // improve read.me
@@ -148,7 +148,7 @@ function renderNotes() {
             const { id, text } = note;
             const noteHtml = `
             <div id="${id}" class="note">
-                <p>${text}</p>
+                <p>&#x2022;&nbsp;${text}</p>
                 <img class="delete-btn" src="delete-icon.png" alt="Delete note">
             </div>
             `;
@@ -169,10 +169,14 @@ function deleteNote(e) {
     renderNotes();
 }
 
-//add delete note feature
+// function editNote(e) {//on focusout
+//     const editedText = e.target.value;
+
+// }
+
+//add delete note feature ✅
 //add edit note feature
-//improve ui for deleting/editing note, make notes wider
-// improve notes positioning (z-index)
+// improve notes positioning (z-index) and make notes wider ✅
 
 async function run() {
     const dateToday = getCurrentDate();
