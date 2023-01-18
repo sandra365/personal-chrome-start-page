@@ -1,12 +1,9 @@
 //work on this app until the end and then start learning react with that cool guy
-//a. upload on github ✅
-//b. think through data flow and file structure
-//c. refactor code (split it into modules)
-//d. add small todo section in the upper left corner which flows over the app (z-index 1) with icon style similar to update ✅
-//e. change app icon ✅
-//f. add option to turn it on from icon menu
-// improve read.me
-//add lock/unlock feature for quotes
+//a. think through data flow and file structure
+//b. refactor code (split it into modules)
+//c. add option to turn it on from icon menu
+//d.improve read.me
+//e.add lock/unlock feature for quotes
 const noteInput = document.getElementById("note-input");
 let notes = getLocalStorageItem('notes') !== null 
     ? getLocalStorageItem('notes')
@@ -155,7 +152,7 @@ function renderNotes() {
             notesDiv += noteHtml;
         });
         document.getElementById("notes-bottom").innerHTML = notesDiv;
-        const deleteBtnCollection = document.getElementsByClassName("delete-btn");//doesn't apply to notes created after innitial loading
+        const deleteBtnCollection = document.getElementsByClassName("delete-btn");
         Array.from(deleteBtnCollection).forEach(btn => {
             btn.addEventListener("click", (e) => {deleteNote(e)});
         });
@@ -168,15 +165,6 @@ function deleteNote(e) {
     setLocalStorageItem('notes', notes);
     renderNotes();
 }
-
-// function editNote(e) {//on focusout
-//     const editedText = e.target.value;
-
-// }
-
-//add delete note feature ✅
-//add edit note feature
-// improve notes positioning (z-index) and make notes wider ✅
 
 async function run() {
     const dateToday = getCurrentDate();
@@ -200,5 +188,3 @@ async function run() {
 }
 
 run();
-
-//&#x2022; - bullet symbol

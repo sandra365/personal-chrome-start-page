@@ -80,12 +80,6 @@ main {
     font-size: 1rem;
 }
 
-/* .notes:hover,
-.notes:focus {
-    background: rgba(255, 255, 255, .9);
-} */
-
-
 .notes-top {
     display: flex;
     margin-bottom: 5px;
@@ -110,11 +104,6 @@ main {
     border-bottom: 1px solid #fff;
 }
 
-/* .notes:hover .input,
-.notes:focus .input {
-    background: rgba(155, 153, 151, .3);
-} */
-
 .note {
     display: flex;
     justify-content: space-between;
@@ -124,17 +113,16 @@ main {
     word-break: break-all;
 }
 
+.note > p {
+    cursor: default;
+}
+
 .delete-btn {
     width: 1em;
     height: 1em;
     margin-left: 5px;
     cursor: pointer;
 }
-/* 
-.delete-btn:hover,
-.delete-btn:focus {
-    border: 1px solid #fff;
-} */
 
 .author {
     font-size: 1.35em;
