@@ -9,7 +9,13 @@ Extesion will be automatically switched on and will appear after opening new Tab
 2.Features
 
 This dashboard has following features:
-    - shows time and weather in user's location;
-    - shows inpiring quote, that being refreshed hourly;
-    - allows to change background if desired using button in the right bottom corner;
-    - allows to take notes with compact note widget in the left upper corner;
+   <br> - shows time and weather in user's location;
+   <br> - shows inpiring quote, that being refreshed hourly;
+   <br> - allows to change background if desired using button in the right bottom corner;
+   <br> - allows to take notes with compact note widget in the left upper corner;
+   
+3. Appearance
+
+   <br>App appears in browser this way:
+   
+![git-display](https://user-images.githubusercontent.com/25910896/213711667-51acb983-cf2c-4a26-9c1b-726c676cb243.jpg)
