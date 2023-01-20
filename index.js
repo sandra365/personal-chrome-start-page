@@ -1,9 +1,5 @@
-//work on this app until the end and then start learning react with that cool guy
 //a. think through data flow and file structure
 //b. refactor code (split it into modules)
-//c. add option to turn it on from icon menu
-//d.improve read.me
-//e.add lock/unlock feature for quotes
 const noteInput = document.getElementById("note-input");
 let notes = getLocalStorageItem('notes') !== null 
     ? getLocalStorageItem('notes')
