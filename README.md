@@ -18,4 +18,4 @@ This dashboard has following features:
 
    <br>App appears in browser this way:
    
-![git-display(edit)](https://user-images.githubusercontent.com/25910896/213711667-51acb983-cf2c-4a26-9c1b-726c676cb243.jpg)
+![git-display](https://user-images.githubusercontent.com/25910896/213711667-51acb983-cf2c-4a26-9c1b-726c676cb243.jpg)
