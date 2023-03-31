@@ -7,7 +7,7 @@ let notes = getLocalStorageItem('notes') !== null
 
 async function updateImageData() {
     try {
-        const res = await fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature");
+        const res = await fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape");
         if (!res.ok) {
             throw Error("Cannot load background image");
         }
