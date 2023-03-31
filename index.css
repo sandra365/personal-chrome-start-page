@@ -94,7 +94,7 @@ main {
 }
 
 .input {
-    width: 80%;
+    width: 90%;
     margin-left: 5px;
     border: none;
     outline: none;
@@ -107,10 +107,10 @@ main {
 .note {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 5px;
-    padding-bottom: 1px;
-    border-bottom: 1px solid #fff;
-    word-break: break-all;
+    padding: 8px;
+    background: rgba(220, 220, 220, .2);
 }
 
 .note > p {
