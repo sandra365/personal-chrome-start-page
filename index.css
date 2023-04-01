@@ -82,8 +82,7 @@ main {
 
 .notes-top {
     display: flex;
-    margin-bottom: 5px;
-    padding-bottom: 1px;
+    margin-bottom: 10px;
 }
 
 .notes-top > img {
